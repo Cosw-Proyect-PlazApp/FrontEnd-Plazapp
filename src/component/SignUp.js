@@ -12,7 +12,7 @@ export class SignUp extends React.Component{
 
         constructor(props) {
             super(props);
-            this.state = {text: '', priority: 0, dueDate: moment()};
+            this.state = {name: '', id: '', cel: '' };
         }
 
 

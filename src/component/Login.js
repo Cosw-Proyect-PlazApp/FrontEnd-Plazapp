@@ -13,6 +13,28 @@ import './Login.css'
 
 export class Login extends React.Component{
 
+    state = {email: '', password: '', isLoggedIn: false};
+
+    handleEmail = event => {
+      this.setState({
+            email: event.target.value
+          });
+    };
+
+    handlePassword = event => {
+        this.setState({
+            password: event.target.value
+        });
+    };
+
+    handleLogin = () => {
+        apimock.enterLogin(this.state.email, this.state.password,
+            function (response) {
+                localStorage.setItem("token", response.data.accessToken);
+                localStorage.setItem("isLoggedIn", true);
+            })
+    };
+
     render(){
         return (
             <React.Fragment>
